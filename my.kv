@@ -1,0 +1,216 @@
+#:kivy 1.11.1
+#:import MDRaisedButton kivymd.uix.button.MDRaisedButton
+#:import MDLabel kivymd.uix.label.MDLabel
+#:import GridLayout kivy.uix.gridlayout.GridLayout
+#:import utils kivy.utils
+#:import Window kivy.core.window.Window
+
+<LoginScreen>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#333333')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        BoxLayout:
+            size_hint: None, None
+            size: 400, 200
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            orientation: 'vertical'
+            padding: '10dp'
+            spacing: '10dp'
+            Label:
+                text: 'Username'
+                size_hint_y: None
+                height: '40dp'
+            TextInput:
+                id: username
+                multiline: False
+                size_hint_y: None
+                height: '40dp'
+            Label:
+                text: 'Password'
+                size_hint_y: None
+                height: '40dp'
+            TextInput:
+                id: password
+                password: True
+                multiline: False
+                size_hint_y: None
+                height: '40dp'
+            BoxLayout:
+                size_hint_y: None
+                height: '40dp'
+                MDRaisedButton:
+                    text: 'Login'
+                    pos_hint: {'center_x': 0.5}
+                    on_press: root.login()
+
+<Role1Screen>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#333333')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: 'vertical'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            BoxLayout:
+                id: task_box
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                on_parent: self.height = self.minimum_height
+                spacing: 10  # Add some space between tasks
+                MDRaisedButton:
+                    id: task1
+                    text: '1 pal. 6427-es KLT a CNC területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')  # Blue color
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task2
+                    text: '1 pal. 6427-es KLT a CMT területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                # Add more tasks as needed
+                MDRaisedButton:
+                    id: task3
+                    text: 'Késztermék szállítása raktárba a Porsche-Kovomo területről'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task4
+                    text: '114 333-as box a Kovomo területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task5
+                    text: '1 pal. 6280-as KLT Kovomo területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task6
+                    text: 'Késztermék szállítása raktárba a Wielpütz területről'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task7
+                    text: 'Késztermék szállítása raktárba a ATL területről'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task8
+                    text: '1 pal. 4280-as KLT ATL területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task9
+                    text: '1 pal. 6280-as KLT ATL területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task10
+                    text: '1 pal. 6280-as KLT Wielpütz területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task11
+                    text: '1 pal. 6280-as KLT(BEN001) Wielpütz területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task12
+                    text: 'Hegesztett termék szállítása Vége.ell. pódiumról a forrasztásra'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task13
+                    text: 'Pasztázott Conti szállítása forrasztásra'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task14
+                    text: '1 pal. P008-as KLT Porsche területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task15
+                    text: '1 pal. p016-os KLT Porsche területre'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task16
+                    text: 'Félkész termék szállítása raktárba Daimler területről'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task17
+                    text: 'Félkész termék szállítása raktárba Wielpütz területről'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task18
+                    text: 'Félkész termék szállítása raktárba Amarok területről'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task19
+                    text: 'Félkész termék szállítása raktárba BMW területről'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+                MDRaisedButton:
+                    id: task20
+                    text: 'Utómunka szállítása kemencére BMW területről'
+                    md_bg_color: utils.get_color_from_hex('#333333')
+                    size_hint_x: 1
+                    on_release: root.select_task(self)
+        BoxLayout:
+            size_hint_y: None
+            height: "50dp"
+            MDRaisedButton:
+                text: 'Send'
+                pos_hint: {'center_x': 0.5}
+                size_hint_x: 1
+                on_press: root.send_tasks()
+
+<CustomTask>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: "48dp"
+    MDRaisedButton:
+        text: root.text
+        md_bg_color: utils.get_color_from_hex('#333333')
+        size_hint_x: 1
+        on_release:
+            root.selected = not root.selected
+            self.md_bg_color = utils.get_color_from_hex('#0095c2') if root.selected else root.default_color
+            from kivy.clock import Clock
+            Clock.schedule_once(lambda dt: setattr(app.root, 'current', 'role2'))
+<Button>:
+    text: 'Complete'
+    size_hint_x: None
+    width: Window.width
+
